@@ -19,14 +19,11 @@ class CartRepo {
     var time = DateTime.now().toString();
     cart = [];
 
-    cartList.forEach((element) {
-      element.time = time;
-      return cart.add(jsonEncode(element));
-    });
+    cartList.forEach((element)=> cart.add(jsonEncode(element)));
 
     sharedPreferences.setStringList(AppConstants.CART_LIST, cart);
     // print(sharedPreferences.getStringList(AppConstants.CART_LIST));
-    // getCartList();
+    getCartList();
   }
 
   List<CartModel> getCartList() {
@@ -50,8 +47,7 @@ class CartRepo {
       sharedPreferences.getStringList(AppConstants.CART_HISTORY_LIST)!;
     }
     List<CartModel> cartListHistory = [];
-    cartHistory.forEach((element) =>
-        cartListHistory.add(CartModel.fromJson(jsonDecode(element))));
+    cartHistory.forEach((element) => cartListHistory.add(CartModel.fromJson(jsonDecode(element))));
     return cartListHistory;
   }
 

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:learn_flutter/utils/dimensions.dart';
 import '../../routes/route_helper.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -44,9 +45,9 @@ class _SplashPageState extends State<SplashScreen> with TickerProviderStateMixin
         children: [
           ScaleTransition(
               scale: animation,
-              child: Center(child: Image.asset("assets/images/logo part 1.png", width: 250,))
+              child: Center(child: Image.asset("assets/images/logo part 1.png", width: Dimensions.splashImg,))
           ),
-          Center(child: Image.asset("assets/images/logo part 2.png", width: 250,)),
+          Center(child: Image.asset("assets/images/logo part 2.png", width: Dimensions.splashImg,)),
         ],
       ),
     );

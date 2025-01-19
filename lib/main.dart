@@ -23,14 +23,20 @@ class MainFoodPage extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    Get.find<CartController>().getCartData();
     Get.find<PopularProductController>().getPopularProductList();
     Get.find<RecommendedProductController>().getRecommendedProductList();
-    return GetMaterialApp(
-      title: 'Flutter Demo',
-      // home: MainFoodPage(),
-      initialRoute: RouteHelper.getInitial(),
-      getPages: RouteHelper.routes,
-    );
+    return GetBuilder<PopularProductController>(builder: (_){
+      return GetBuilder<RecommendedProductController>(builder: (_){
+        return GetMaterialApp(
+          title: 'Flutter Demo',
+          // home: MainFoodPage(),
+          initialRoute: RouteHelper.getSplashScreen(),
+          getPages: RouteHelper.routes,
+        );
+
+      });
+    });
   }
 }
 
