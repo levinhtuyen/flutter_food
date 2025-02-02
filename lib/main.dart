@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:learn_flutter/pages/auth/sign_in_page.dart';
+import 'package:learn_flutter/pages/auth/sign_up_page.dart';
+import 'package:learn_flutter/pages/home/home_page.dart';
 import '../routes/route_helper.dart';
 import '../controllers/cart_controller.dart';
 import '../controllers/popular_product_controller.dart';
@@ -30,7 +33,8 @@ class MainFoodPage extends StatelessWidget {
       return GetBuilder<RecommendedProductController>(builder: (_){
         return GetMaterialApp(
           title: 'Flutter Demo',
-          // home: MainFoodPage(),
+          // home: SignInPage(),
+          // home: HomePage(),
           initialRoute: RouteHelper.getSplashScreen(),
           getPages: RouteHelper.routes,
         );

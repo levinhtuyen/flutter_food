@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../base/no_data_bases.dart';
+import '../../controllers/auth_controller.dart';
 import '../../controllers/cart_controller.dart';
 import '../../controllers/popular_product_controller.dart';
 import '../../controllers/recommended_product_controller.dart';
@@ -233,8 +235,8 @@ class CartPage extends StatelessWidget {
                 ),
               ),
             )
-                : Container();
-                // : NoDataPage(text: "Your cart is emty!");
+
+                : NoDataPage(text: "Your cart is emty!");
           }),
         ],
       ),
@@ -261,7 +263,7 @@ class CartPage extends StatelessWidget {
               // - or +
               Container(
                 padding: EdgeInsets.only(
-                    top: Dimensions.height20,
+                    top: Dimensions.height15,
                     bottom: Dimensions.height20,
                     left: Dimensions.width20,
                     right: Dimensions.width20),
@@ -285,9 +287,9 @@ class CartPage extends StatelessWidget {
                 onTap: () {
                   // popularProduct.addItem(product);
                   cartController.addToHistory();
-                  // if (!Get.find<AuthController>().userLoggedIn()) {
+                  if (Get.find<AuthController>().userLoggedIn()) {
                   //   print("tapped");
-                  //   // cartController.addToHistory();
+                    cartController.addToHistory();
                   //   if (Get.find<LocationController>()
                   //       .addressList
                   //       .isEmpty) {
@@ -295,13 +297,13 @@ class CartPage extends StatelessWidget {
                   //   } else {
                   //     Get.offAndToNamed(RouteHelper.getInitial());
                   //   }
-                  // } else {
-                  //   Get.toNamed(RouteHelper.getsigInPage());
-                  // }
+                  } else {
+                    Get.toNamed(RouteHelper.getSignIn());
+                  }
                 },
                 child: Container(
                   padding: EdgeInsets.only(
-                      top: Dimensions.height20,
+                      top: Dimensions.height15,
                       bottom: Dimensions.height20,
                       right: Dimensions.height20,
                       left: Dimensions.height20),

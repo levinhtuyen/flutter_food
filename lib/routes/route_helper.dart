@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:learn_flutter/pages/auth/sign_in_page.dart';
+import 'package:learn_flutter/pages/auth/sign_up_page.dart';
 import '../pages/cart/cart_page.dart';
 import '../pages/food/popular_food_detail.dart';
 import '../pages/home/home_page.dart';
@@ -12,6 +14,8 @@ class RouteHelper {
   static const String popularFood = "/popular-food";
   static const String recommendedFood = "/recommended-food";
   static const String cartPage = "/cart-page";
+  static const String signIn = "/sign-in";
+  static const String signUp = "/sign-up";
 
   static String getSplashScreen() => '$splashPage';
   static String getInitial() => '$initial';
@@ -20,6 +24,9 @@ class RouteHelper {
   static String getRecommendedFood(int pageId, String page) =>
       '$recommendedFood?pageId=$pageId&page=${page}';
   static String getCartPage() => "$cartPage";
+
+  static String getSignIn() => "$signIn";
+  static String getSignUp() => "$signUp";
 
   static List<GetPage> routes = [
     GetPage(name: splashPage, page: () => SplashScreen()),
@@ -48,6 +55,10 @@ class RouteHelper {
         transition: Transition.fadeIn),
     GetPage(
         name: cartPage, page: () => CartPage(), transition: Transition.fadeIn),
+    GetPage(
+        name: signIn, page: () => SignInPage(), transition: Transition.fadeIn),
+    GetPage(
+        name: signUp, page: () => SignUpPage(), transition: Transition.fadeIn),
   ];
 
   static get pageId => null;
