@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../../base/no_data_bases.dart';
 import '../../controllers/auth_controller.dart';
 import '../../controllers/cart_controller.dart';
+import '../../controllers/location_controller.dart';
 import '../../controllers/popular_product_controller.dart';
 import '../../controllers/recommended_product_controller.dart';
 import '../../utils/colors.dart';
@@ -286,17 +287,13 @@ class CartPage extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   // popularProduct.addItem(product);
-                  cartController.addToHistory();
+                  // cartController.addToHistory();
                   if (Get.find<AuthController>().userLoggedIn()) {
-                  //   print("tapped");
-                    cartController.addToHistory();
-                  //   if (Get.find<LocationController>()
-                  //       .addressList
-                  //       .isEmpty) {
-                  //     Get.toNamed(RouteHelper.getAddresssPage());
-                  //   } else {
-                  //     Get.offAndToNamed(RouteHelper.getInitial());
-                  //   }
+                    if (Get.find<LocationController>().addressList.isEmpty){
+                      Get.toNamed(RouteHelper.getAddressPage());
+                    } else {
+                      Get.offAndToNamed(RouteHelper.getInitial());
+                    }
                   } else {
                     Get.toNamed(RouteHelper.getSignIn());
                   }

@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:learn_flutter/pages/address/add_address_page.dart';
 import 'package:learn_flutter/pages/auth/sign_in_page.dart';
 import 'package:learn_flutter/pages/auth/sign_up_page.dart';
 import '../pages/cart/cart_page.dart';
@@ -17,6 +18,9 @@ class RouteHelper {
   static const String signIn = "/sign-in";
   static const String signUp = "/sign-up";
 
+  static const String addAddress="/add-address";
+
+
   static String getSplashScreen() => '$splashPage';
   static String getInitial() => '$initial';
   static String getPopularFood(int pageId, String page) =>
@@ -27,6 +31,7 @@ class RouteHelper {
 
   static String getSignIn() => "$signIn";
   static String getSignUp() => "$signUp";
+  static String getAddressPage()=>'$addAddress';
 
   static List<GetPage> routes = [
     GetPage(name: splashPage, page: () => SplashScreen()),
@@ -59,6 +64,10 @@ class RouteHelper {
         name: signIn, page: () => SignInPage(), transition: Transition.fadeIn),
     GetPage(
         name: signUp, page: () => SignUpPage(), transition: Transition.fadeIn),
+
+    GetPage(name: addAddress, page: () {
+      return AddAddressPage();
+    })
   ];
 
   static get pageId => null;

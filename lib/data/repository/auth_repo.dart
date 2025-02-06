@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:learn_flutter/data/api/api_client.dart';
+import '../../data/api/api_client.dart';
 import 'package:learn_flutter/models/signup_body_model.dart';
 import 'package:learn_flutter/utils/app_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';

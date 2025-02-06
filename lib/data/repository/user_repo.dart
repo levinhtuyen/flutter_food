@@ -1,6 +1,6 @@
 import 'package:get/get_connect.dart';
-import 'package:learn_flutter/data/api/api_client.dart';
-import 'package:learn_flutter/utils/app_constants.dart';
+import '../../data/api/api_client.dart';
+import '../../utils/app_constants.dart';
 
 class UserRepo{
   final ApiClient apiClient;

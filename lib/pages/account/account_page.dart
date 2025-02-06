@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learn_flutter/base/custom_loader.dart';
 import 'package:learn_flutter/controllers/auth_controller.dart';
 import 'package:learn_flutter/controllers/cart_controller.dart';
+import 'package:learn_flutter/controllers/location_controller.dart';
 import 'package:learn_flutter/controllers/user_controller.dart';
 import 'package:learn_flutter/utils/dimensions.dart';
 import 'package:learn_flutter/widgets/account_widget.dart';
@@ -97,15 +98,40 @@ class _AccountPageState extends State<AccountPage> {
                       height: Dimensions.height10,
                     ),
                     // Address icon
-                    AccountWidget(
-                        appIcon: AppIcon(
-                          icon: Icons.location_on,
-                          backgroundColor: AppColors.yellowColor,
-                          iconColor: Colors.white,
-                          iconSize: Dimensions.height10 * 5 / 2,
-                          size: Dimensions.height10 * 5,
-                        ),
-                        bigText: BigText(text: "Go Vap, Ho Chi Minh city")),
+                    GetBuilder<LocationController>(builder: (locationController){
+                      if(_userLoggedIn&&locationController.addressList.isEmpty){
+                        return GestureDetector(
+                          onTap: (){
+                            Get.offNamed(RouteHelper.getAddressPage());
+                          },
+                          child: AccountWidget(
+                              appIcon: AppIcon(
+                                icon: Icons.location_on,
+                                backgroundColor: AppColors.yellowColor,
+                                iconColor: Colors.white,
+                                iconSize: Dimensions.height10 * 5 / 2,
+                                size: Dimensions.height10 * 5,
+                              ),
+                              bigText: BigText(text: "Go Vap, Ho Chi Minh city")),
+                        );
+                      } else {
+                        return GestureDetector(
+                          onTap: (){
+                            print('click to address');
+                            Get.offNamed(RouteHelper.getAddressPage());
+                          },
+                          child: AccountWidget(
+                              appIcon: AppIcon(
+                                icon: Icons.location_on,
+                                backgroundColor: AppColors.yellowColor,
+                                iconColor: Colors.white,
+                                iconSize: Dimensions.height10 * 5 / 2,
+                                size: Dimensions.height10 * 5,
+                              ),
+                              bigText: BigText(text: "Your address")),
+                        );
+                      }
+                    },),
                     SizedBox(
                       height: Dimensions.height10,
                     ),
@@ -211,15 +237,40 @@ class _AccountPageState extends State<AccountPage> {
                       height: Dimensions.height10,
                     ),
                     // Address icon
-                    AccountWidget(
-                        appIcon: AppIcon(
-                          icon: Icons.location_on,
-                          backgroundColor: AppColors.yellowColor,
-                          iconColor: Colors.white,
-                          iconSize: Dimensions.height10 * 5 / 2,
-                          size: Dimensions.height10 * 5,
-                        ),
-                        bigText: BigText(text: "Go Vap, Ho Chi Minh city")),
+                    GetBuilder<LocationController>(builder: (locationController){
+                      if(_userLoggedIn&&locationController.addressList.isEmpty){
+                        return GestureDetector(
+                          onTap: (){
+                            Get.offNamed(RouteHelper.getAddressPage());
+                          },
+                          child: AccountWidget(
+                              appIcon: AppIcon(
+                                icon: Icons.location_on,
+                                backgroundColor: AppColors.yellowColor,
+                                iconColor: Colors.white,
+                                iconSize: Dimensions.height10 * 5 / 2,
+                                size: Dimensions.height10 * 5,
+                              ),
+                              bigText: BigText(text: "Go Vap, Ho Chi Minh city")),
+                        );
+                      } else {
+                        return GestureDetector(
+                          onTap: (){
+                            print('click to address');
+                            Get.offNamed(RouteHelper.getAddressPage());
+                          },
+                          child: AccountWidget(
+                              appIcon: AppIcon(
+                                icon: Icons.location_on,
+                                backgroundColor: AppColors.yellowColor,
+                                iconColor: Colors.white,
+                                iconSize: Dimensions.height10 * 5 / 2,
+                                size: Dimensions.height10 * 5,
+                              ),
+                              bigText: BigText(text: "Your address")),
+                        );
+                      }
+                    },),
                     SizedBox(
                       height: Dimensions.height10,
                     ),
